@@ -22,6 +22,7 @@ Game::Game() :
 {
 	setupFontAndText(); // load font 
 	setupSprite(); // load texture
+	RectangleShape();//shape rect
 }
 
 /// <summary>
@@ -110,10 +111,13 @@ void Game::update(sf::Time t_deltaTime)
 /// </summary>
 void Game::render()
 {
-	m_window.clear(sf::Color::White);
+	m_window.clear(sf::Color::Black);
 	m_window.draw(m_welcomeMessage);
 	m_window.draw(m_logoSprite);
+	m_window.draw(m_RectangleShapeRed);
+	m_window.draw(m_RectangleShapeBlue);
 	m_window.display();
+	
 }
 
 /// <summary>
@@ -126,7 +130,7 @@ void Game::setupFontAndText()
 		std::cout << "problem loading arial black font" << std::endl;
 	}
 	m_welcomeMessage.setFont(m_ArialBlackfont);
-	m_welcomeMessage.setString("SFML Game");
+	m_welcomeMessage.setString("Simon Says");
 	m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
 	m_welcomeMessage.setPosition(40.0f, 40.0f);
 	m_welcomeMessage.setCharacterSize(80U);
@@ -147,5 +151,21 @@ void Game::setupSprite()
 		std::cout << "problem loading logo" << std::endl;
 	}
 	m_logoSprite.setTexture(m_logoTexture);
-	m_logoSprite.setPosition(300.0f, 180.0f);
+	m_logoSprite.setPosition(000.0f, 000.0f);
 }
+
+void Game::RectangleShape()
+{
+	m_RectangleShapeRed.setFillColor(sf::Color{ RED});
+	m_RectangleShapeRed.setSize(sf::Vector2f(200, 200));
+	m_RectangleShapeRed.setPosition(sf::Vector2f(555, 30));
+
+	m_RectangleShapeBlue.setFillColor(sf::Color{ Blue });
+    m_RectangleShapeBlue.setSize(sf::Vector2f(200, 200));
+	m_RectangleShapeBlue.setPosition(sf::Vector2f(555,250));
+
+
+
+}
+
+

@@ -11,6 +11,9 @@
 /// </summary>
 #include <SFML/Graphics.hpp>
 
+const sf::Color RED{ 180,0,0,255 };
+const sf::Color Blue{ 0,0,255 };
+
 class Game
 {
 public:
@@ -30,12 +33,17 @@ private:
 	
 	void setupFontAndText();
 	void setupSprite();
+	void RectangleShape();
 
 	sf::RenderWindow m_window; // main SFML window
 	sf::Font m_ArialBlackfont; // font used by message
 	sf::Text m_welcomeMessage; // text used for message on screen
 	sf::Texture m_logoTexture; // texture used for sfml logo
-	sf::Sprite m_logoSprite; // sprite used for sfml logo
+	
+	sf::RectangleShape m_RectangleShape;//rectangle shape for button 
+	sf::RectangleShape m_RectangleShapeBlue;
+	sf::RectangleShape m_RectangleShapeRed;
+	
 	bool m_exitGame; // control exiting game
 
 };
