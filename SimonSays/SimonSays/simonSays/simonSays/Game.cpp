@@ -21,7 +21,7 @@ Game::Game() :
 	m_exitGame{false} //when true game will exit
 {
 	setupFontAndText(); // load font 
-	setupSprite(); // load texture
+	
 	RectangleShape();//shape rect
 }
 
@@ -113,9 +113,12 @@ void Game::render()
 {
 	m_window.clear(sf::Color::Black);
 	m_window.draw(m_welcomeMessage);
-	m_window.draw(m_logoSprite);
+	m_window.draw(m_redText);
+	
 	m_window.draw(m_RectangleShapeRed);
 	m_window.draw(m_RectangleShapeBlue);
+	m_window.draw(m_RectangleShapeGreen);
+	m_window.draw(m_RectangleShapeYellow);
 	m_window.display();
 	
 }
@@ -130,29 +133,21 @@ void Game::setupFontAndText()
 		std::cout << "problem loading arial black font" << std::endl;
 	}
 	m_welcomeMessage.setFont(m_ArialBlackfont);
-	m_welcomeMessage.setString("Simon Says");
+	m_welcomeMessage.setString("Simon\nSays");
 	m_welcomeMessage.setStyle(sf::Text::Underlined | sf::Text::Italic | sf::Text::Bold);
 	m_welcomeMessage.setPosition(40.0f, 40.0f);
-	m_welcomeMessage.setCharacterSize(80U);
-	m_welcomeMessage.setOutlineColor(sf::Color::Red);
+	m_welcomeMessage.setCharacterSize(45U);
+	m_welcomeMessage.setOutlineColor(sf::Color::White);
 	m_welcomeMessage.setFillColor(sf::Color::Black);
 	m_welcomeMessage.setOutlineThickness(3.0f);
 
+	m_redText.setFont(m_ArialBlackfont);
+	m_redText.setCharacterSize(30U);
+	m_redText.setString("hard game");
+	m_redText.setPosition(50.0f,200.0f);
+	m_redText.setFillColor(RED);
 }
 
-/// <summary>
-/// load the texture and setup the sprite for the logo
-/// </summary>
-void Game::setupSprite()
-{
-	if (!m_logoTexture.loadFromFile("ASSETS\\IMAGES\\SFML-LOGO.png"))
-	{
-		// simple error message if previous call fails
-		std::cout << "problem loading logo" << std::endl;
-	}
-	m_logoSprite.setTexture(m_logoTexture);
-	m_logoSprite.setPosition(000.0f, 000.0f);
-}
 
 void Game::RectangleShape()
 {
@@ -160,10 +155,17 @@ void Game::RectangleShape()
 	m_RectangleShapeRed.setSize(sf::Vector2f(200, 200));
 	m_RectangleShapeRed.setPosition(sf::Vector2f(555, 30));
 
-	m_RectangleShapeBlue.setFillColor(sf::Color{ Blue });
+	m_RectangleShapeBlue.setFillColor(sf::Color{ BLUE });
     m_RectangleShapeBlue.setSize(sf::Vector2f(200, 200));
 	m_RectangleShapeBlue.setPosition(sf::Vector2f(555,250));
 
+	m_RectangleShapeGreen.setFillColor(sf::Color{ GREEN });
+	m_RectangleShapeGreen.setSize(sf::Vector2f(200, 200));
+	m_RectangleShapeGreen.setPosition(sf::Vector2f(335, 30));
+
+	m_RectangleShapeYellow.setFillColor(sf::Color{ YELLOW });
+	m_RectangleShapeYellow.setSize(sf::Vector2f(200, 200));
+	m_RectangleShapeYellow.setPosition(sf::Vector2f(335, 250));
 
 
 }
