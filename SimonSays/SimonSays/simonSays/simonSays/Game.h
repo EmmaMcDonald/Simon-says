@@ -41,6 +41,9 @@ private:
 	sf::Font m_ArialBlackfont; // font used by message
 	sf::Text m_welcomeMessage; // text used for message on screen
 	sf::Text m_redText;
+	sf::Text m_greenText;
+	sf::Text m_yellowText;
+	sf::Text m_blueText;
 	sf::Texture m_logoTexture; // texture used for sfml logo
 	
 	sf::RectangleShape m_RectangleShapeYellow;//rectangle shape for button 

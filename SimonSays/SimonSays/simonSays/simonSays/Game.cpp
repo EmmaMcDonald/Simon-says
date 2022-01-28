@@ -114,6 +114,9 @@ void Game::render()
 	m_window.clear(sf::Color::Black);
 	m_window.draw(m_welcomeMessage);
 	m_window.draw(m_redText);
+	m_window.draw(m_greenText);
+	m_window.draw(m_yellowText);
+	m_window.draw(m_blueText);
 	
 	m_window.draw(m_RectangleShapeRed);
 	m_window.draw(m_RectangleShapeBlue);
@@ -141,11 +144,35 @@ void Game::setupFontAndText()
 	m_welcomeMessage.setFillColor(sf::Color::Black);
 	m_welcomeMessage.setOutlineThickness(3.0f);
 
+	m_greenText.setFont(m_ArialBlackfont);
+	m_greenText.setCharacterSize(30U);
+	m_greenText.setString("Press Green \nEasy Game");
+	m_greenText.setPosition(50.0f,195.0f);
+	m_greenText.setFillColor(GREEN);
+
+
+	m_yellowText.setFont(m_ArialBlackfont);
+	m_yellowText.setCharacterSize(30U);
+	m_yellowText.setString("Press Yellow for\nMedium Game  ");
+	m_yellowText.setPosition(50.0f, 290.0f);
+	m_yellowText.setFillColor(YELLOW);
+
+	 
+
 	m_redText.setFont(m_ArialBlackfont);
 	m_redText.setCharacterSize(30U);
-	m_redText.setString("hard game");
-	m_redText.setPosition(50.0f,200.0f);
+	m_redText.setString("Press Red for\nHard Game ");
+	m_redText.setPosition(50.0f,385.0f);
 	m_redText.setFillColor(RED);
+
+
+	m_blueText.setFont(m_ArialBlackfont);
+	m_blueText.setCharacterSize(30U);
+	m_blueText.setString("Press Blue for\nExit Game ");
+	m_blueText.setPosition(50.0f, 480.0f);
+	m_blueText.setFillColor(BLUE);
+
+
 }
 
 
