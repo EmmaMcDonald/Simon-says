@@ -100,6 +100,19 @@ void Game::processKeys(sf::Event t_event)
 /// <param name="t_deltaTime">time interval per frame</param>
 void Game::update(sf::Time t_deltaTime)
 {
+	switch (m_activeGameModes)
+	{
+	case GameModes::Starting:
+		break;
+	case GameModes::Showing:
+		break;
+	case GameModes::Recieving:
+		break;
+	case GameModes::GameOver:
+		break;
+	default:
+		break;
+	}
 	if (m_exitGame)
 	{
 		m_window.close();
@@ -111,13 +124,17 @@ void Game::update(sf::Time t_deltaTime)
 /// </summary>
 void Game::render()
 {
+
 	m_window.clear(sf::Color::Black);
 	m_window.draw(m_welcomeMessage);
-	m_window.draw(m_redText);
-	m_window.draw(m_greenText);
-	m_window.draw(m_yellowText);
-	m_window.draw(m_blueText);
 	
+	if (m_activeGameModes == GameModes::Starting )
+	{
+		m_window.draw(m_redText);
+		m_window.draw(m_greenText);
+		m_window.draw(m_yellowText);
+		m_window.draw(m_blueText);
+	}
 	m_window.draw(m_RectangleShapeRed);
 	m_window.draw(m_RectangleShapeBlue);
 	m_window.draw(m_RectangleShapeGreen);

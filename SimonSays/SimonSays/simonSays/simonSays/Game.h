@@ -16,6 +16,15 @@ const sf::Color BLUE{ 0,0,180,255 };
 const sf::Color YELLOW{180,180,0,255};
 const sf::Color GREEN{0,180,0,255};
 
+enum class GameModes
+{
+	Starting  ,
+	Showing,
+	Recieving ,
+	GameOver
+
+};
+
 class Game
 {
 public:
@@ -53,6 +62,7 @@ private:
 	
 	bool m_exitGame; // control exiting game
 
+	GameModes m_activeGameModes = GameModes::Starting;
 };
 
 #endif // !GAME_HPP
